@@ -16,6 +16,11 @@ WALLET_ID=<INSERT-ID-HERE> TELEGRAM_KEY=<INSERT-API-KEY-HERE> yarn go
 
 If you want to receive information on telegram create a bot on BotFather: https://t.me/botfather#:~:text=BotFather%20is%20the%20one%20bot,BotFather%20right%20away
 
+Available commands:
+
+```/stats``` - Show heros working now
+
+```/rewards``` - Show amount of bcoin
 
 ## Restart Bot on Errors
 
