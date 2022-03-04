@@ -23,6 +23,6 @@ To make bot retry on errors, and never stop to work:
 
 * Install this tool: https://github.com/kadwanev/retry
 * Edit ```bash_script.sh``` file with your IDs
-* Move this file to your $HOME directory and add the code above to your ```~/.bashrc```
+* Add the code above to your ```~/.bashrc```
 
-```retry -m $((5 * 60)) -x $((25 * 60)) 'sh $home/bash_script.sh; false'```
+```retry -m $((5 * 60)) -x $((25 * 60)) 'sh $home/bombcrypto-superbot/bash_script.sh; false'```
