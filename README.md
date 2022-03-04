@@ -2,6 +2,9 @@
 
 ## Basic usage
 
+Install dependencies:
+```yarn``` or ```npm install```
+
 Run this command:
 
 
