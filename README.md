@@ -35,3 +35,9 @@ To make bot retry on errors, and never stop to work:
 * Add the code above to your ```~/.bashrc```
 
 ```retry -m $((5 * 60)) -x $((25 * 60)) 'sh $HOME/bombcrypto-superbot/bash_script.sh; false'```
+
+If you need to detach this command, run:
+
+```nohup retry -m $((5 * 60)) -x $((25 * 60)) 'sh $HOME/bombcrypto-superbot/bash_script.sh; false' &```
+
+
