@@ -116,18 +116,8 @@ docker rm bsb1 -f
 
 You may create as many `.env` files as you need. For each account you run using Docker, give a different name when running the `docker run` command. For each bot, you need a **different** telegram key to communicate with them. All commands listed here a simple Docker commands, I highly recommend studying them at the official documentation and learn how it works.
 
+## Donations
 
-## Restart Bot on Errors Without Docker
+There is no need to donate to this project. I work on it just for fun. Its a hobby. But if
+you truly insist: BEP20 `0x2E11Fd7125876B3B34C54D13Bb815FFC719c438c`.
 
-To make bot retry on errors, and never stop to work: 
-
-* Install this tool: https://github.com/kadwanev/retry
-* Edit ```bash_script.sh``` file with your IDs
-* Make file executable ```chmod +x bash_script.sh```
-* Add the code above to your ```~/.bashrc```
-
-```retry -m $((5 * 60)) -x $((25 * 60)) 'sh $HOME/bombcrypto-superbot/bash_script.sh; false'```
-
-If you need to detach this command, run:
-
-```nohup retry -m $((5 * 60)) -x $((25 * 60)) 'sh $HOME/bombcrypto-superbot/bash_script.sh; false' &```
