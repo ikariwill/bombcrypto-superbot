@@ -113,15 +113,18 @@ export class TreasureMapBot {
                 const rewards = await this.client.getReward();
                 const detail = await this.client.coinDetail();
 
-                const message =
-                    "Rewards:\n" +
-                    `Mined: ${detail.mined} | Invested: ${detail.invested} ` +
-                    `| Rewards: ${detail.rewards}\n` +
-                    rewards
-                        .map((reward) => `${reward.type}: ${reward.value}`)
-                        .join("\n");
+                const mined = detail.mined.toFixed(2);
+                const nerf = `${100 - Math.trunc(detail.rewards * 100)}%`;
 
-                await context.reply(message);
+                const accountInfo = rewards
+                    .map(
+                        (reward) => `${reward.type}: ${reward.value.toFixed(2)}`
+                    )
+                    .join("\n");
+
+                const message = `Rewards\n🔥 Invested: ${detail.invested}\n💰 Mined: ${mined}\n😭 Nerf: ${nerf}\n\nAccount\n${accountInfo}`;
+
+                await context.reply(message.trim());
             } else {
                 await context.reply("Not connected, please wait");
             }
