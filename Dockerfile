@@ -1,12 +1,7 @@
-FROM node:14
+FROM node:14-alpine
 
-RUN npm update
-RUN apt update
-
-COPY . /bombcrypto-superbot
-WORKDIR /bombcrypto-superbot
+WORKDIR /home/bombcrypto-superbot
+COPY . .
 
 RUN yarn install
 RUN yarn build
-
-CMD ["node", "-r", "./build/websocket.js", "--unhandled-rejections=strict", "build/index.js"]

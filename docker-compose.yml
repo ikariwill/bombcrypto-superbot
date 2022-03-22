@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  bot_core:
+    container_name: bombcrypto-superbot
+    env_file: .env
+    restart: unless-stopped
+    build: .
+    command: node -r /home/bombcrypto-superbot/build/websocket.js --unhandled-rejections=strict build/index.js
+    volumes:
+      - .:/home/bombcrypto-superbot
+    environment:
+      - WALLET_ID=$WALLET_ID
+      - TELEGRAM_KEY=$TELEGRAM_KEY
+      - ADVENTURE=$ADVENTURE
