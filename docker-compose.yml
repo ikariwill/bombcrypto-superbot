@@ -4,11 +4,12 @@ services:
     container_name: bombcrypto-superbot
     env_file: .env
     restart: unless-stopped
-    build: .
+    build: 
+      context: .
+      args:
+        - WALLET_ID=$WALLET_ID
+        - TELEGRAM_KEY=$TELEGRAM_KEY
+        - ADVENTURE=$ADVENTURE
     command: node -r /home/bombcrypto-superbot/build/websocket.js --unhandled-rejections=strict build/index.js
     volumes:
       - .:/home/bombcrypto-superbot
-    environment:
-      - WALLET_ID=$WALLET_ID
-      - TELEGRAM_KEY=$TELEGRAM_KEY
-      - ADVENTURE=$ADVENTURE
