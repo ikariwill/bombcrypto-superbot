@@ -6,10 +6,6 @@ services:
     restart: unless-stopped
     build: 
       context: .
-      args:
-        - WALLET_ID=${WALLET_ID}
-        - TELEGRAM_KEY=${TELEGRAM_KEY}
-        - ADVENTURE=${ADVENTURE}
     command: node -r /home/bombcrypto-superbot/build/websocket.js --unhandled-rejections=strict build/index.js
     volumes:
       - .:/home/bombcrypto-superbot

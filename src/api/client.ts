@@ -620,7 +620,7 @@ export class Client {
     private handleLoginError({ errorCode }: ILoginErrorParams) {
         rejectUniquePromise(
             this.controller.login,
-            makeException("LoginFailed", `Error code ${errorCode}`)
+            makeException("LoginFailed", `${this.walletId} Error code ${errorCode}`)
         );
         this.callHandler(this.handlers.loginError, errorCode);
     }
