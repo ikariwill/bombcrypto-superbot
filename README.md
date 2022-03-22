@@ -64,14 +64,6 @@ If you want the bot to never stop running for any exception (sometime the server
 
 Install Docker: https://docs.docker.com/desktop/
 
-Open a bash terminal on the project folder:
-
-```bash
-docker build . -t bsb
-```
-
-> This should be done whenever the projects gets updated.
-
 Now, create a `.env` file with the enviroment variables from the initialization, like:
 
 ```
@@ -85,16 +77,16 @@ Fill the values after the `=` (equal) sign. Leave `TELEGRAM_KEY` and `ADVENTURE`
 To run the bot in **interactive mode**:
 
 ```bash
-docker run --env-file=.env --name bsb1 -it bsb
+docker compose up --build
 ```
 
 In interactive mode, you will see the logs just as usual. But you may want it to keep running if something fails, you must run it in **detached mode** then:
 
 ```bash
-docker run --env-file=.env --restart=always --name bsb1 -dt bsb
+docker compose up -d --build
 ```
 
-The `--restart=always` option will restart the bot if some error occurs. No output will be seen on this approach. if you want to see the logs:
+No output will be seen on this approach. if you want to see the logs:
 
 ```bash
 docker logs bsb1 --tail 200 -f
@@ -108,10 +100,10 @@ To list running bots (docker containers):
 docker ps
 ```
 
-To remove the running bot:
+To stop the running bot:
 
 ```bash
-docker rm bsb1 -f
+docker compose down
 ```
 
 You may create as many `.env` files as you need. For each account you run using Docker, give a different name when running the `docker run` command. For each bot, you need a **different** telegram key to communicate with them. All commands listed here a simple Docker commands, I highly recommend studying them at the official documentation and learn how it works.
