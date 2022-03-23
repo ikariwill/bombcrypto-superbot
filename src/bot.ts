@@ -112,7 +112,7 @@ export class TreasureMapBot {
                 const rewards = await this.client.getReward();
                 const detail = await this.client.coinDetail();
 
-                const mined = detail.mined.toFixed(2);
+                const mined = Math.round(detail.mined * 100) / 100;
                 const nerf = `${100 - Math.trunc(detail.rewards * 100)}%`;
 
                 const accountInfo = rewards
