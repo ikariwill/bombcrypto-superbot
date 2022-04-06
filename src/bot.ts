@@ -271,7 +271,7 @@ export class TreasureMapBot {
 
     async placeBomb(hero: Hero, location: IMapTile) {
         logger.info(
-            `Hero ${hero.id} ${hero.energy}/${hero.maxEnergy} will place ` +
+            `${hero.rarity} ${hero.id} ${hero.energy}/${hero.maxEnergy} will place ` +
                 `bomb on (${location.i}, ${location.j})`
         );
 
@@ -306,11 +306,8 @@ export class TreasureMapBot {
 
             if (this.canPlaceBomb(hero, location.tile)) {
                 await this.placeBomb(hero, location.tile);
-            } else {
-                logger.info(`Hero ${hero.id} cannot place bomb now.`);
-            }
-
-            logger.info(this.map.toString());
+                logger.info(this.map.toString());
+            } 
             await sleep(250);
         }
     }
